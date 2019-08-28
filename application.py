@@ -378,13 +378,19 @@ binary_failure = go.Figure(data=[mydata1, mydata2], layout=mylayout)
 
 
 
-
-
-
-
-
-app = dash.Dash()
+########### Initiate the app
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+# server = app.server
 application = app.server
+app.title='eda-example'
+
+
+
+
+
+
+
 app.layout = html.Div(children=[
     html.H1(children='Predicting Device Failure'),
 html.Div(children='''
@@ -531,11 +537,6 @@ dcc.Graph(
 ])
 
 
-
-
-
-
-app.css.append_css({'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'})
 
 if __name__ == '__main__':
 
